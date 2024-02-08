@@ -1,0 +1,3 @@
+CREATE TABLE books (
+    id SERIAL PRIMARY KEY, book_id VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL, price FLOAT
+);
