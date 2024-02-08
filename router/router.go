@@ -14,8 +14,11 @@ func NewRouter(bookController *controller.BookController) *httprouter.Router {
 		w.Write([]byte("Hello World"))
 	})
 
-	router.POST("/book", bookController.CreateBook)
+	router.GET("/book/", bookController.SearchBook)
 	router.GET("/book/:book_id", bookController.GetBookByID)
+	router.PUT("/book/:book_id", bookController.UpdateBook)
+	router.POST("/book", bookController.CreateBook)
+	router.DELETE("/book/:book_id", bookController.DeleteBook)
 
 	return router
 }

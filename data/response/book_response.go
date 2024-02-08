@@ -1,9 +1,12 @@
 package response
 
-import "errors"
+import (
+	"errors"
+)
 
 var (
-	ErrBookNotFound = errors.New("book not found")
+	ErrBookNotFound   = errors.New("book not found")
+	ErrInvalidRequest = errors.New("invalid request")
 )
 
 type BookResponse struct {
