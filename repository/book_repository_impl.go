@@ -73,8 +73,7 @@ func (b *BookRepositoryImpl) GetBookByID(ctx context.Context, bookID int64) (*re
 func (b *BookRepositoryImpl) SearchBook(ctx context.Context) ([]*response.BookResponse, error) {
 	var results []*response.BookResponse
 
-	// SQL query to select all books
-	sql := `
+	rawSQL := `
         SELECT
             id,
             book_id,
@@ -84,8 +83,7 @@ func (b *BookRepositoryImpl) SearchBook(ctx context.Context) ([]*response.BookRe
             books
     `
 
-	// Execute the SQL query
-	err := b.Db.SelectContext(ctx, &results, sql)
+	err := b.Db.SelectContext(ctx, &results, rawSQL)
 	if err != nil {
 		return nil, err
 	}
